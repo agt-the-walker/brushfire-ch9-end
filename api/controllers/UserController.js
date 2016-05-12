@@ -18,13 +18,13 @@ module.exports = {
         { email: req.param('email') },
         { username: req.param('username') }
       ]
-    }, function foundUser(err, user) {
+    }, function foundUser(err, createdUser) {
       if (err) return res.negotiate(err);
-      if (!user) return res.notFound();
+      if (!createdUser) return res.notFound();
 
       Passwords.checkPassword({
         passwordAttempt: req.param('password'),
-        encryptedPassword: user.encryptedPassword
+        encryptedPassword: createdUser.encryptedPassword
       }).exec({
 
         error: function (err){
@@ -36,16 +36,16 @@ module.exports = {
         },
 
         success: function (){
-          if (user.deleted) {
+          if (createdUser.deleted) {
             return res.forbidden("'Your our account has been deleted. Please visit http://brushfire.io/restore to restore your account.'");
           }
 
-          if (user.banned) {
+          if (createdUser.banned) {
             return res.forbidden("'Your our account has been banned, most likely for adding dog videos in violation of the Terms of Service. Please contact Chad or his mother.'");
           }
 
           // Login user
-          req.session.userId = user.id;
+          req.session.userId = createdUser.id;
 
           // console.log('req.session.userId: ', req.session.userId);
 
