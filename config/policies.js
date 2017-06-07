@@ -38,14 +38,17 @@ module.exports.policies = {
     removeProfile: ['isLoggedIn'],
     updateProfile: ['isLoggedIn'],
     restoreGravatarURL: ['isLoggedIn'],
-    changePassword: ['isLoggedIn']
+    changePassword: ['isLoggedIn'],
+    signup: ['isLoggedOut'],
+    restoreProfile: ['isLoggedOut']
   },
 
   PageController: {
     showSignupPage: ['isLoggedOut'],
     showAdminPage: ['isLoggedIn', 'isAdmin'],
     showProfilePage: ['isLoggedIn'],
-    showEditProfilePage: ['isLoggedIn']
+    showEditProfilePage: ['isLoggedIn'],
+    showRestorePage: ['isLoggedOut']
   }
 
   /***************************************************************************
