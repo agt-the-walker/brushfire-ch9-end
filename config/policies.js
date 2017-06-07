@@ -28,6 +28,10 @@ module.exports.policies = {
 
   // '*': true,
 
+  VideoController: {
+    create: ['isLoggedIn']
+  }
+
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *
