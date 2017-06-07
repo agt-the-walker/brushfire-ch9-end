@@ -30,6 +30,17 @@ module.exports.policies = {
 
   VideoController: {
     create: ['isLoggedIn']
+  },
+
+  UserController: {
+    login: ['isLoggedOut'],
+    logout: ['isLoggedIn']
+  },
+
+  PageController: {
+    showSignupPage: ['isLoggedOut'],
+    showAdminPage: ['isLoggedIn', 'isAdmin'],
+    showProfilePage: ['isLoggedIn']
   }
 
   /***************************************************************************
