@@ -35,7 +35,10 @@ module.exports.policies = {
   UserController: {
     login: ['isLoggedOut'],
     logout: ['isLoggedIn'],
-    removeProfile: ['isLoggedIn']
+    removeProfile: ['isLoggedIn'],
+    updateProfile: ['isLoggedIn'],
+    restoreGravatarURL: ['isLoggedIn'],
+    changePassword: ['isLoggedIn']
   },
 
   PageController: {
