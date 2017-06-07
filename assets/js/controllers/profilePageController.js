@@ -50,7 +50,7 @@ angular.module('brushfire').controller('profilePageController', ['$location', '$
   // .catch(function onError(sailsResponse){
   //   // console.log(sailsResponse);
 
-  //   // If no profile found remove interface and show error message.    
+  //   // If no profile found remove interface and show error message.
   //   if(sailsResponse.status === 404) {
   //     $scope.userProfile.noProfile = true;
   //     $scope.userProfile.errorMsg = 'No profile found.';
@@ -70,7 +70,7 @@ angular.module('brushfire').controller('profilePageController', ['$location', '$
     // console.log('the change userprofile is: ', $scope.userProfile);
 
     // var theRoute = '/user/removeProfile/' + $scope.userProfile.properties.id;
-    var theRoute = '/user/removeProfile/' + $scope.me.id;
+    var theRoute = '/user/removeProfile/';
     $http.put(theRoute, {
         deleted: true
       })
@@ -79,7 +79,7 @@ angular.module('brushfire').controller('profilePageController', ['$location', '$
         // console.log('sailsResponse: ', sailsResponse);
           // $scope.userProfile.properties.gravatarURL = sailsResponse.data.gravatarURL;
           window.location = '/signup';
-          // 
+          //
           // toastr.success('Password Updated!');
 
         $scope.userProfile.loading = false;

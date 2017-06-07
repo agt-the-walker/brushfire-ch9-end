@@ -34,13 +34,15 @@ module.exports.policies = {
 
   UserController: {
     login: ['isLoggedOut'],
-    logout: ['isLoggedIn']
+    logout: ['isLoggedIn'],
+    removeProfile: ['isLoggedIn']
   },
 
   PageController: {
     showSignupPage: ['isLoggedOut'],
     showAdminPage: ['isLoggedIn', 'isAdmin'],
-    showProfilePage: ['isLoggedIn']
+    showProfilePage: ['isLoggedIn'],
+    showEditProfilePage: ['isLoggedIn']
   }
 
   /***************************************************************************
