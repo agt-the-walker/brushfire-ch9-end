@@ -40,7 +40,11 @@ module.exports.policies = {
     restoreGravatarURL: ['isLoggedIn'],
     changePassword: ['isLoggedIn'],
     signup: ['isLoggedOut'],
-    restoreProfile: ['isLoggedOut']
+    restoreProfile: ['isLoggedOut'],
+    adminUsers: ['isLoggedIn', 'isAdmin'],
+    updateAdmin: ['isLoggedIn', 'isAdmin'],
+    updateBanned: ['isLoggedIn', 'isAdmin'],
+    updateDeleted: ['isLoggedIn', 'isAdmin']
   },
 
   PageController: {
